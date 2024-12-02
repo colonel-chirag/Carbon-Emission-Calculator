@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Footprint Calculator</title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4fdf4; /* Light green eco-friendly background */
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: center; /* Centers the content horizontally */
+      align-items: center; /* Centers the content vertically */
+      height: 15vh; /* Full viewport height */
+      background-color: #e7ca29;
+    }
+
+    .header-logo {
+      text-align: center;
+    }
+
+    .header-logo img {
+      max-width: 200px; /* Adjust the size of the logo */
+      display: block;
+      margin: 0 auto;
+    }
+
+    .header-logo h1 {
+      margin: 10px 0 0;
+      font-size: 2rem;
+      color: #ffffff;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .section {
+      background: #176711;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      padding: 5px;
+    }
+
+    .section-header {
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      padding: 10px;
+      background-color: #28a745;
+      color: white;
+      border-radius: 8px;
+    }
+
+    .input-group {
+      margin-top: 15px;
+      display: none;
+    }
+
+    .input-group.active {
+      display: block;
+    }
+
+    .input-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the video covers the entire background */
+      z-index: -1; /* Sends the video to the back */
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    #result {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f8e8;
+      border: 1px solid #d4f0d4;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    footer span {
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="header-logo">
+      <img src="images/logo-tspt-2.png" alt="Logo">
+      <h1>Carbon Footprint Calculator</h1>
+    </div>
+  </header>
+  
+  <video autoplay muted loop class="video-background">
+    <source src="video/new.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="container">
+    <!-- Home Section -->
+    <div class="section" id="home">
+      <div class="section-header" onclick="toggleSection('home')">Home</div>
+      <div class="input-group">
+        <label for="electricity">Electricity Bill Price (per kWh):</label>
+        <input type="number" id="electricity" placeholder="Enter price (₹/kWh)">
+      </div>
+      <div class="input-group">
+        <label for="lpg">LPG Price (per kg):</label>
+        <input type="number" id="lpg" placeholder="Enter price (₹/kg)">
+      </div>
+    </div>
+
+    <!-- Car Section -->
+    <div class="section" id="car">
+      <div class="section-header" onclick="toggleSection('car')">Car</div>
+      <div class="input-group">
+        <label for="fuelConsumption">Fuel Consumption (Mileage):</label>
+        <input type="number" id="fuelConsumption" placeholder="Enter consumption (Mileage)">
+      </div>
+      <div class="input-group">
+        <label for="distance">Distance Covered (km):</label>
+        <input type="number" id="distance" placeholder="Enter distance (km)">
+      </div>
+    </div>
+
+    <button id="calculateBtn" onclick="reduce()">Calculate</button>
+
+    <div id="result">
+      <div id="result1"></div>
+      <div id="result2"></div>
+      <div id="result3"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <section>
+        <div class="hero-video-container">
+          <video class="hero-video" preload="auto" loop muted autoplay playsinline width="150" height="150">
+            <source src="video/video1.mp4" type="video/mp4">
+          </video>
+          <div class="hero-overlay"></div>
+        </div>
+      </section>
+      <span>Copyright © 2024 | Designed & Developed By Chirag Patel</span>
+
+    </div>
+  </footer>
+  
+  
+  
+
+  <script src="reduce.js"></script>  <script>    function toggleSection(sectionId) {      var section = document.getElementById(sectionId);      var inputGroups = section.getElementsByClassName('input-group');      for (var i = 0; i < inputGroups.length; i++) {        inputGroups[i].classList.toggle('active');      }    }  </script>  </body></html> 
+</body>
+
+</html>
